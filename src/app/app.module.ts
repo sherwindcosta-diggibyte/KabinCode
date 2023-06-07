@@ -1,5 +1,5 @@
 import { HTTP_INTERCEPTORS,HttpClientModule } from '@angular/common/http';
-import { NgModule } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { MsalGuard, MsalInterceptor, MsalModule, MsalRedirectComponent } from '@azure/msal-angular';
 import { InteractionType, PublicClientApplication } from '@azure/msal-browser';
@@ -16,6 +16,7 @@ import { AzureAdDemoService } from './azure-ad-demo.service';
 import { ReportComponent } from './report/report.component';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
 const isIE=window.navigator.userAgent.indexOf('MSIE')>-1
 ||window.navigator.userAgent.indexOf('Trident/')>-1
 @NgModule({
@@ -73,6 +74,7 @@ const isIE=window.navigator.userAgent.indexOf('MSIE')>-1
     useClass:MsalInterceptor,
     multi:true
   },MsalGuard,AzureAdDemoService],
-  bootstrap: [AppComponent,MsalRedirectComponent]
+  bootstrap: [AppComponent,MsalRedirectComponent],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class AppModule { }
