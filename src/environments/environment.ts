@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  postLogoutUrl:"https://kabin-code.vercel.app"
+  postLogoutUrl:"https://kabin-code-2.vercel.app"
 };
 
 /*
